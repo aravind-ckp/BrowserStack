@@ -81,8 +81,8 @@ public class OpinionSectionPage {
     }
 
     public void verifyPageLanguageAttributeIsSpanish() {
-        WebElement htmlElement = driver.findElement(By.tagName("html"));
-        String langAttribute = htmlElement.getAttribute("lang");
+        String langAttribute = (String) ((JavascriptExecutor) driver)
+                .executeScript("return document.documentElement.lang;");
 
         if (langAttribute == null || !langAttribute.equalsIgnoreCase("es-ES")) {
             throw new AssertionError("Page 'lang' attribute is not 'es-ES'. Found: " + langAttribute);
