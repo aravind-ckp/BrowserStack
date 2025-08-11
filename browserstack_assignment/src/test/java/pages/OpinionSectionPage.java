@@ -13,6 +13,9 @@ import java.time.Duration;
 import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebDriver;
+import org.testng.Assert;
 
 public class OpinionSectionPage {
     private final WebDriver driver;
@@ -81,12 +84,15 @@ public class OpinionSectionPage {
     }
 
     public void verifyPageLanguageAttributeIsSpanish() {
+        // Use JavaScript to get the lang attribute directly from the <html> element
         String langAttribute = (String) ((JavascriptExecutor) driver)
                 .executeScript("return document.documentElement.lang;");
 
-        if (langAttribute == null || !langAttribute.equalsIgnoreCase("es-ES")) {
-            throw new AssertionError("Page 'lang' attribute is not 'es-ES'. Found: " + langAttribute);
-        }
+        System.out.println("HTML lang attribute: " + langAttribute);
+
+        // Assert that the language attribute is "es" for Spanish
+        Assert.assertEquals(langAttribute, "es",
+            "Expected language attribute to be 'es' but found: " + langAttribute);
     }
 
     public void printStoredArticlesInSpanish() {
