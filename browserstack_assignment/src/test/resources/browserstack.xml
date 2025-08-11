@@ -1,0 +1,57 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+<suite name="Parallel BrowserStack Suite" parallel="tests" thread-count="5">
+    <test name="Chrome_Windows">
+        <parameter name="browserName" value="chrome"/>
+        <parameter name="browserVersion" value="latest"/>
+        <parameter name="os" value="Windows"/>
+        <parameter name="osVersion" value="11"/>
+        <parameter name="deviceName" value=""/>
+        <classes>
+            <class name="runner.TestRunner"/>
+        </classes>
+    </test>
+
+    <test name="Safari_macOS">
+        <parameter name="browserName" value="safari"/>
+        <parameter name="browserVersion" value="latest"/>
+        <parameter name="os" value="OS X"/>
+        <parameter name="osVersion" value="Monterey"/>
+        <parameter name="deviceName" value=""/>
+        <classes>
+            <class name="runner.TestRunner"/>
+        </classes>
+    </test>
+
+    <test name="Android_RealDevice">
+        <parameter name="browserName" value="android"/>
+        <parameter name="browserVersion" value="latest"/>
+        <parameter name="os" value="Android"/>
+        <parameter name="osVersion" value="12.0"/>
+        <parameter name="deviceName" value="Samsung Galaxy S21"/>
+        <classes>
+            <class name="runner.TestRunner"/>
+        </classes>
+    </test>
+
+    <test name="iPhone_RealDevice">
+        <parameter name="browserName" value="iPhone"/>
+        <parameter name="browserVersion" value="latest"/>
+        <parameter name="os" value="iOS"/>
+        <parameter name="osVersion" value="15"/>
+        <parameter name="deviceName" value="iPhone 13 Pro"/>
+        <classes>
+            <class name="runner.TestRunner"/>
+        </classes>
+    </test>
+
+    <test name="Firefox_Windows">
+        <parameter name="browserName" value="firefox"/>
+        <parameter name="browserVersion" value="latest"/>
+        <parameter name="os" value="Windows"/>
+        <parameter name="osVersion" value="10"/>
+        <parameter name="deviceName" value=""/>
+        <classes>
+            <class name="runner.TestRunner"/>
+        </classes>
+    </test>
+</suite>

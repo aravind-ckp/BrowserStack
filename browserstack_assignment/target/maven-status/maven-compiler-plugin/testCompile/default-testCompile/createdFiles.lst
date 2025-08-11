@@ -1,0 +1,7 @@
+utils/TextProcessor.class
+runner/TestRunner.class
+utils/TranslationApiClient.class
+steps/ElPaisSteps.class
+pages/OpinionSectionPage.class
+hooks/Hooks.class
+utils/ConfigLoader.class
