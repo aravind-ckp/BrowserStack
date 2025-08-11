@@ -37,11 +37,11 @@ jobs:
         run: |
           if [ -f "pom.xml" ]; then
             echo "Found pom.xml in repo root"
-            mvn -B clean test -Dtest=runner.TestRunner
+            mvn clean test -Dsurefire.suiteXmlFiles=src/test/resources/browserstack.xml -DrunMode=browserstack
           elif [ -f "browserstack_assignment/pom.xml" ]; then
             echo "Found pom.xml in browserstack_assignment/"
             cd browserstack_assignment
-            mvn -B clean test -Dtest=runner.TestRunner
+            mvn clean test -Dsurefire.suiteXmlFiles=src/test/resources/browserstack.xml -DrunMode=browserstack
           else
             echo "❌ No pom.xml found. Check your repo structure."
             exit 1
