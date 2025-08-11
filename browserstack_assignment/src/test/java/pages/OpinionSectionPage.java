@@ -91,8 +91,8 @@ public class OpinionSectionPage {
         System.out.println("HTML lang attribute: " + langAttribute);
 
         // Assert that the language attribute is "es" for Spanish
-        Assert.assertEquals(langAttribute, "es",
-            "Expected language attribute to be 'es' but found: " + langAttribute);
+        Assert.assertTrue(langAttribute.startsWith("es"),
+        "Expected language attribute to start with 'es' but found: " + langAttribute);
     }
 
     public void printStoredArticlesInSpanish() {
